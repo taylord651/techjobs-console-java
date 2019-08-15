@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -82,6 +83,24 @@ public class JobData {
         }
 
         return jobs;
+    }
+
+    /**
+     * Looks for a search term in all of the columns
+     */
+    public static ArrayList<HashMap<String, String>> findByValue(String searchTerm) {
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            //for (Map.Entry<String, String> jobPost : row.entrySet())
+            if (row.containsValue(searchTerm) == true){
+                jobs.add(row);
+            }
+        }
+
+        return (jobs);
     }
 
     /**
