@@ -7,10 +7,8 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -52,7 +50,18 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        ArrayList<HashMap<String, String>> copyOfAllJobs = new ArrayList<HashMap<String, String>>();
+
+        int i = 0;
+
+
+        for (HashMap<String, String> job: allJobs) {
+                copyOfAllJobs.add(i, job);
+                i += 1;
+        }
+
+
+        return copyOfAllJobs;
     }
 
     /**
