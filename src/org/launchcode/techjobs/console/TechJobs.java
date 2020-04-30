@@ -1,9 +1,6 @@
 package org.launchcode.techjobs.console;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.launchcode.techjobs.console.JobData.findAll;
 
@@ -47,6 +44,8 @@ public class TechJobs {
                     ArrayList<String> results = findAll(columnChoice);
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
+
+                    Collections.sort(results);
 
                     // Print list of skills, employers, etc
                     for (String item : results) {
